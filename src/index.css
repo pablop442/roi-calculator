@@ -1,5 +1,26 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #005975;
+  font-family: "Luckiest Guy", cursive;
+}
+
+.title {
+  color: #ffff;
+}
+
+.row-bg-1 {
+  background-color: #f5faff;
+  padding-top: 15px;
+}
+
+.row-bg-2 {
+  background-color: #b47743;
+  padding-top: 15px;
+}
+
+.clearbtn {
+  color: #ffff;
+  background-color: #413e45;
 }
