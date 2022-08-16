@@ -7,6 +7,8 @@ function FormInput({
   onInput,
   onKeyUp,
   readOnly = false,
+  onChange,
+  onFocus,
 }) {
   return (
     <div className="input-group mb-3">
@@ -19,6 +21,8 @@ function FormInput({
         onInput={onInput}
         onKeyUp={onKeyUp}
         readOnly={readOnly}
+        onChange={onChange}
+        onFocus={onFocus}
       />
     </div>
   );
