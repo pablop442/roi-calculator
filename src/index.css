@@ -8,6 +8,7 @@
 
 .title {
   color: #ffff;
+  text-shadow: 2px 2px 2px #5d9bf0;
 }
 
 .row-bg-1 {
@@ -23,4 +24,17 @@
 .clearbtn {
   color: #ffff;
   background: #413e45;
+}
+
+.actionbtn {
+  background: #5d9bf0;
+  color: #ffff;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem #b47743;
+}
+
+.readonlyinput {
+  cursor: not-allowed;
 }
