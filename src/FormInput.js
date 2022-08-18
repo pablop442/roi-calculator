@@ -9,6 +9,7 @@ function FormInput({
   readOnly = false,
   onChange,
   onFocus,
+  title,
 }) {
   return (
     <div className="input-group mb-3">
@@ -23,6 +24,7 @@ function FormInput({
         readOnly={readOnly}
         onChange={onChange}
         onFocus={onFocus}
+        title={title}
       />
     </div>
   );

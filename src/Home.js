@@ -9,7 +9,7 @@ function Home() {
       <div className="container mt-3">
         <div className="row">
           <ReactLogo />
-          <h1 className="display-5 my-3 d-flex justify-content-center title">
+          <h1 className="display-5 my-3 d-flex justify-content-center title text-center">
             Cake Monster - ROI Calculator
           </h1>
         </div>

@@ -26,6 +26,10 @@
   background: #413e45;
 }
 
+.clearbtn:hover {
+  color: #b47743;
+}
+
 .actionbtn {
   background: #5d9bf0;
   color: #ffff;
