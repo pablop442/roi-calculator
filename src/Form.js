@@ -37,79 +37,6 @@ function Form() {
     return decimal;
   };
 
-  const calculatePurchased = () => {
-    const percentage = 0.95;
-    const res = ((investment / monstaPrice) * percentage).toFixed(2);
-    return res;
-  };
-
-  const calculateMonstaBQuantity = () => {
-    const res = percentageToDecimal(monstaPercentage) * monstaPurchased;
-    return res;
-  };
-  const calculateMonstaQuantity = () => {
-    const res = Math.floor(
-      (1 - percentageToDecimal(monstaPercentage)) * monstaPurchased
-    );
-    return res;
-  };
-
-  const calculateRemainingReset = () => {
-    const res = Math.floor(remainingDays / 50);
-    return res;
-  };
-
-  const calculateCircSupplyPercentage = () => {
-    const res = (
-      ((+bMonstaHoldings + +monstaHoldings) / circSupplyMonsta) *
-      100
-    ).toFixed(3);
-
-    return res;
-  };
-
-  const calculateCakeSlice = () => {
-    const res = (percentageToDecimal(circSupplyPercentage) * cakeVault).toFixed(
-      2
-    );
-    return res;
-  };
-
-  const calculateBnbSlice = () => {
-    const res = (percentageToDecimal(circSupplyPercentage) * bnbVault).toFixed(
-      2
-    );
-    return res;
-  };
-
-  const calculateCakeUSD = () => {
-    const res = cakePrice * cakeSlice;
-    return res;
-  };
-
-  const calculateBnbUSD = () => {
-    const res = bnbPrice * bnbSlice;
-    return res;
-  };
-
-  const calculateTotalUSD = () => {
-    const res = cakeUSD + bnbUSD;
-    return res;
-  };
-
-  const calculateRoi = () => {
-    const res = (((totalUSD - investment) / investment) * 100).toFixed(2);
-
-    return res;
-  };
-
-  const calculateCycleTwo = () => {
-    const res = (
-      percentageToDecimal(circSupplyPercentage) * 10000000000
-    ).toFixed(2);
-    return res;
-  };
-
   const clearAll = () => {
     setCircSupplyMonsta("");
     setCakeVault("");
@@ -127,6 +54,78 @@ function Form() {
 
   //useEffect updates states each time re renders
   useEffect(() => {
+    const calculatePurchased = () => {
+      const percentage = 0.95;
+      const res = ((investment / monstaPrice) * percentage).toFixed(2);
+      return res;
+    };
+
+    const calculateMonstaBQuantity = () => {
+      const res = percentageToDecimal(monstaPercentage) * monstaPurchased;
+      return res;
+    };
+    const calculateMonstaQuantity = () => {
+      const res = Math.floor(
+        (1 - percentageToDecimal(monstaPercentage)) * monstaPurchased
+      );
+      return res;
+    };
+
+    const calculateRemainingReset = () => {
+      const res = Math.floor(remainingDays / 50);
+      return res;
+    };
+
+    const calculateCircSupplyPercentage = () => {
+      const res = (
+        ((+bMonstaHoldings + +monstaHoldings) / circSupplyMonsta) *
+        100
+      ).toFixed(3);
+
+      return res;
+    };
+
+    const calculateCakeSlice = () => {
+      const res = (
+        percentageToDecimal(circSupplyPercentage) * cakeVault
+      ).toFixed(2);
+      return res;
+    };
+
+    const calculateBnbSlice = () => {
+      const res = (
+        percentageToDecimal(circSupplyPercentage) * bnbVault
+      ).toFixed(2);
+      return res;
+    };
+
+    const calculateCakeUSD = () => {
+      const res = cakePrice * cakeSlice;
+      return res;
+    };
+
+    const calculateBnbUSD = () => {
+      const res = bnbPrice * bnbSlice;
+      return res;
+    };
+
+    const calculateTotalUSD = () => {
+      const res = cakeUSD + bnbUSD;
+      return res;
+    };
+
+    const calculateRoi = () => {
+      const res = (((totalUSD - investment) / investment) * 100).toFixed(2);
+
+      return res;
+    };
+
+    const calculateCycleTwo = () => {
+      const res = (
+        percentageToDecimal(circSupplyPercentage) * 10000000000
+      ).toFixed(2);
+      return res;
+    };
     setMonstaPurchased(calculatePurchased());
     setMonstaB(calculateMonstaBQuantity());
     setMonsta(calculateMonstaQuantity());
@@ -223,7 +222,7 @@ function Form() {
           <div className="row mt-3 ">
             <div className="col-12 col-sm-6">
               <FormInput
-                text="$MONSTA (%)"
+                text="$BMONSTA (%)"
                 placeholder="Enter percentage"
                 title="Input baked Monsta percentage"
                 value={monstaPercentage}
