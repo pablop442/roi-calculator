@@ -29,6 +29,8 @@ function Form() {
   const [totalUSD, setTotalUSD] = useState("");
   const [roi, setRoi] = useState("");
   const [cycleTwo, setCycleTwo] = useState("");
+  const [aprPercentage, setAprPercentage] = useState("");
+  const [apr, setApr] = useState("");
 
   //Calculation Functions
 
@@ -73,13 +75,24 @@ function Form() {
       return res;
     };
 
+    const calculateAprPercentage = () => {
+      const exponent = 1 / 365;
+      const operation = (percentageToDecimal(averageAPY) + 1) ** exponent;
+      const res = (operation - 1) * 365;
+      return res;
+    };
+
+    const calculateApr = () => {
+      const res = aprPercentage / 365;
+      return res;
+    };
+
     const calculateRemainingReset = () => {
       const res = Math.floor(remainingDays / 50);
       return res;
     };
 
     const calculateBMonstaHoldings = () => {
-      const apr = 0.00061;
       const res = (monstaB * (1 + apr) ** remainingDays).toFixed(2);
       return res;
     };
@@ -146,7 +159,9 @@ function Form() {
     setRemainingReset(calculateRemainingReset());
     setBMonstaHoldings(calculateBMonstaHoldings());
     setMonstaHoldings(calculateMonstaHoldings());
-    setCircSupplyPercentage(calculateCircSupplyPercentage);
+    setAprPercentage(calculateAprPercentage());
+    setApr(calculateApr());
+    setCircSupplyPercentage(calculateCircSupplyPercentage());
     setCakeSlice(calculateCakeSlice());
     setBnbSlice(calculateBnbSlice());
     setCakeUSD(calculateCakeUSD());
@@ -179,6 +194,8 @@ function Form() {
     totalUSD,
     roi,
     cycleTwo,
+    apr,
+    aprPercentage,
   ]);
 
   return (
