@@ -61,18 +61,32 @@ function Form() {
     };
 
     const calculateMonstaBQuantity = () => {
-      const res = percentageToDecimal(monstaPercentage) * monstaPurchased;
+      const res = (
+        percentageToDecimal(monstaPercentage) * monstaPurchased
+      ).toFixed(2);
       return res;
     };
     const calculateMonstaQuantity = () => {
       const res = Math.floor(
         (1 - percentageToDecimal(monstaPercentage)) * monstaPurchased
-      );
+      ).toFixed(2);
       return res;
     };
 
     const calculateRemainingReset = () => {
       const res = Math.floor(remainingDays / 50);
+      return res;
+    };
+
+    const calculateBMonstaHoldings = () => {
+      const apr = 0.00061;
+      const res = (monstaB * (1 + apr) ** remainingDays).toFixed(2);
+      return res;
+    };
+
+    const calculateMonstaHoldings = () => {
+      const multiplier = 0.9975 ** remainingReset;
+      const res = (monsta * multiplier).toFixed(2);
       return res;
     };
 
@@ -100,17 +114,17 @@ function Form() {
     };
 
     const calculateCakeUSD = () => {
-      const res = cakePrice * cakeSlice;
+      const res = (cakePrice * cakeSlice).toFixed(2);
       return res;
     };
 
     const calculateBnbUSD = () => {
-      const res = bnbPrice * bnbSlice;
+      const res = (bnbPrice * bnbSlice).toFixed(2);
       return res;
     };
 
     const calculateTotalUSD = () => {
-      const res = cakeUSD + bnbUSD;
+      const res = (+cakeUSD + +bnbUSD).toFixed(2);
       return res;
     };
 
@@ -130,6 +144,8 @@ function Form() {
     setMonstaB(calculateMonstaBQuantity());
     setMonsta(calculateMonstaQuantity());
     setRemainingReset(calculateRemainingReset());
+    setBMonstaHoldings(calculateBMonstaHoldings());
+    setMonstaHoldings(calculateMonstaHoldings());
     setCircSupplyPercentage(calculateCircSupplyPercentage);
     setCakeSlice(calculateCakeSlice());
     setBnbSlice(calculateBnbSlice());
@@ -243,22 +259,20 @@ function Form() {
                 title="Daily compound"
                 onChange={(e) => setAverageAPY(parseFloat(e.target.value))}
               />
+            </div>
+            <div className="col-12 col-sm-6">
               <FormInput
                 text="$BMONSTA HOLDINGS(QTY)"
-                placeholder="Enter amount (check Excel!)"
                 title="BMONSTA end of cycle prediction"
                 value={bMonstaHoldings}
-                onChange={(e) => setBMonstaHoldings(parseFloat(e.target.value))}
+                readOnly={true}
               />
               <FormInput
                 text="$MONSTA HOLDINGS(QTY)"
-                placeholder="Enter amount (check Excel!)"
                 title="MONSTA end of cycle incl. cost of reset"
                 value={monstaHoldings}
-                onChange={(e) => setMonstaHoldings(parseFloat(e.target.value))}
+                readOnly={true}
               />
-            </div>
-            <div className="col-12 col-sm-6">
               <FormInput
                 text="MONSTA REMAINING RESET"
                 readOnly={true}

@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./Form";
+import Footer from "./Footer";
 import "./index.css";
 import { ReactComponent as ReactLogo } from "../src/img/monster_head.svg";
 
@@ -15,6 +16,7 @@ function Home() {
         </div>
 
         <Form />
+        <Footer />
       </div>
     </>
   );

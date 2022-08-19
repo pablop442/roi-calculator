@@ -42,3 +42,17 @@
 .readonlyinput {
   cursor: not-allowed;
 }
+
+.footer-link {
+  text-decoration: none;
+  color: #fefcfb;
+}
+
+.footer-link:hover {
+  font-size: 20px;
+  color: #5d9bf0;
+}
+
+footer {
+  font-size: small;
+}
