@@ -43,7 +43,14 @@
   cursor: not-allowed;
 }
 
-.footer-link {
+.bottomimg {
+  width: 20%;
+  height: 20%;
+}
+
+/* Use if footer is active */
+
+/* .footer-link {
   text-decoration: none;
   color: #fefcfb;
 }
@@ -55,4 +62,4 @@
 
 footer {
   font-size: small;
-}
+} */
